@@ -11,3 +11,15 @@ Release Date: February 09, 2017
 ## New Components
 
 - CI-Starter webapp (NB)
+
+- Controllers
+
+    - History (CK)
+    
+## Updated Components
+
+- Controllers
+
+    - Welcome (CK)
+    
+- README (CK)
