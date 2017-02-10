@@ -9,9 +9,15 @@
 	</head>
 	<body>
         <div id="container">
-			{content}
-			<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. 
-				{ci_version}</p>
+            <header id="header">
+                {headcontent}
+            </header>
+            <div id="content">
+                {content}
+            </div>
+			<footer id="footer">
+                {footcontent}
+            </footer>
         </div>
 	</body>
 </html>
