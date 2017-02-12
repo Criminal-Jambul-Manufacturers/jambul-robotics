@@ -38,7 +38,7 @@ class Parts extends Application
     public function  onePart($partID) {
 
         $this->data['pagebody'] = 'getPartInfo';
-		$source = $this->parts->getPartInfo($partID);
+		$source = $this->part->getPartInfo($partID);
 		$this->data['part'] = $this->part->getPartInfo($partID);
 
         $this->render();
