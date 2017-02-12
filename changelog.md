@@ -91,3 +91,19 @@ Release Date: February 11, 2017
     - jQuery
     
     - Bootstrap
+
+
+## *Version 0.32*
+
+Release Date: February 11, 2017
+
+## New Components
+
+- Controllers
+
+    - Parts.php
+
+    - Assembly.php
+
+
+    
