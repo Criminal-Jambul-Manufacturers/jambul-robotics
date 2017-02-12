@@ -20,8 +20,18 @@ class Robot extends CI_Model{
      * Mock data for the webapp to operate on for assignment one.
      */
    var $data = array(
-       array('robotID' => '1', 'headID' => '1', 'torsoID' => '2',
-           'bottomID' => '3', 'model' => 'Household')
+       array('robotID' => 1, 'headID' => 1, 'torsoID' => 2,
+           'bottomID' => 3, 'model' => 'Household').
+       array('robotID' => 2, 'headID' => 4, 'torsoID' => 5,
+           'bottomID' => 6, 'model' => 'Household').
+       array('robotID' => 3, 'headID' => 1, 'torsoID' => 2,
+           'bottomID' => 6, 'model' => 'Household').
+       array('robotID' => 4, 'headID' => 1, 'torsoID' => 5,
+           'bottomID' => 3, 'model' => 'Household').
+       array('robotID' => 5, 'headID' => 4, 'torsoID' => 2,
+           'bottomID' => 3, 'model' => 'Household').
+       array('robotID' => 6, 'headID' => 4, 'torsoID' => 5,
+           'bottomID' => 3, 'model' => 'Household')
    );
    
    /*
@@ -53,5 +63,15 @@ class Robot extends CI_Model{
        foreach($this->data as $robot)
            if($robot['robotID'] == $robotID)
                return $robot;
+   }
+   
+   /*
+    * Returns the number of robots owned by Jambul Robotics that have not yet
+    * been shipprd off.
+    * 
+    * @return int - returns the number of robots owned by Jambul Robotics
+    */
+   public function numRobots() {
+       return count($this->data);
    }
 }
