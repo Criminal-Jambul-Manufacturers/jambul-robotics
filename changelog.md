@@ -88,33 +88,44 @@ Release Date: February 11, 2017
 
 - Assets
 
-    - jQuery
+    - jQuery (AF)
     
-    - Bootstrap
+    - Bootstrap (AF)
 
 
 ## *Version 0.32*
 
 Release Date: February 11, 2017
 
-## New Components
+## Updated Components
 
 - Controllers
 
-    - Parts.php
+    - Parts (ZK)
 
-    - Assembly.php
+    - Assembly (ZK)
 
 
 ## *Version 0.33*
 
 Release Date: February 12, 2017
 
-## New Components 
+## Updated Components 
 
 - Views
 
-    - footer.php
+    - footer (ZK)
 
+## *Version 0.34*
 
-    
+Release Date: February 12, 2017
+
+## Updated Components
+
+- Views
+
+    - header (CK)
+
+- Controllers
+
+    - MY_CONTROLLER (CK)
