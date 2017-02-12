@@ -38,11 +38,11 @@ public function __construct() {
     
 
 	// ONE PART.
-    public function  getPartInfo($partID)) {
+    public function  onePart($partID)) {
 
         $this->data['pagebody'] = 'getPartInfo';
-		$source = $this->parts->get($partID);
-		$this->data['part'] = $this->part->all ();
+		$source = $this->parts->getPartInfo($partID);
+		$this->data['part'] = $this->part->getPartInfo($partID);
 
         $this->render();
     }
