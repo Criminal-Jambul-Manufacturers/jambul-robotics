@@ -23,3 +23,13 @@ Release Date: February 09, 2017
     - Welcome (CK)
     
 - README (CK)
+
+## *Version 0.2*
+
+Release Date: February 11, 2017
+
+## New Components
+
+- Models
+
+    - Part (NB)
