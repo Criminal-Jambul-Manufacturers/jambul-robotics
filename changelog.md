@@ -73,3 +73,21 @@ Release Date: February 11, 2017
 - Assets
 
     - Icon (AF)
+    
+## *Version 0.31*
+
+Release Date: February 11, 2017
+
+## Updated Components
+
+- Views
+
+    - Template (AF)
+    
+## New Components
+
+- Assets
+
+    - jQuery
+    
+    - Bootstrap
