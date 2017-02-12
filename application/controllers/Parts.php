@@ -6,13 +6,11 @@ class Parts extends Application
 {
 
 
-public function __construct() {
-	 parent::__construct();
-	 $this->load->model('part');
-	 //$this->load->database();
-}
-
-
+        public function __construct() {
+            parent::__construct();
+            $this->load->model('part');
+            //$this->load->database();
+        }
 
 	/**
 	 * Index Page for this controller.
@@ -28,7 +26,6 @@ public function __construct() {
 	 */
 	public function index()
 	{
-``
 		//$this->load->model('part');
 		$this->data['pagebody'] = 'part';
 		$source = $this->part->all();
@@ -38,7 +35,7 @@ public function __construct() {
     
 
 	// ONE PART.
-    public function  onePart($partID)) {
+    public function  onePart($partID) {
 
         $this->data['pagebody'] = 'getPartInfo';
 		$source = $this->parts->getPartInfo($partID);

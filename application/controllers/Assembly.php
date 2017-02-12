@@ -3,13 +3,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-
 class Assembly extends Application
 {
 
-	public function __construct() {
-		$this->load->model('assembly');
-	}
 	/**
 	 * Index Page for this controller.
 	 *
@@ -22,10 +18,16 @@ class Assembly extends Application
 	 * map to /welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+    
+        public function __construct() {
+            parent::__construct();
+            $this->load->model('assembly');
+        }
+    
 	public function index()
 	{
-		$this->data['pagebody'] = 'assembly';
-		$this->render(); 
+            $this->data['pagebody'] = 'assembly';
+            $this->render(); 
 	}
 
 
@@ -33,10 +35,10 @@ class Assembly extends Application
 	// the user has selected.
 	public function assemble($chosenParts)
 	{
-		$this->data['pagebody'] = 'assembly';
-		$source = $this->parts->get($chosenParts);
-        this->data['assembly'] = $this->assembly->all ();
-		$this->render(); 
+            $this->data['pagebody'] = 'assembly';
+            $source = $this->parts->get($chosenParts);
+            $this->data['assembly'] = $this->assembly->all();
+            $this->render(); 
 	}
     
 }
