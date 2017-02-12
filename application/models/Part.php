@@ -7,11 +7,17 @@
  */
 
 /**
- * Description of Part
+ * Part is a model that has access to all of the robot parts currently owned by
+ * Jambul Robotics. A part has a unique partID, a partCode to specify what type
+ * and model it is, a certID which corresponds to a certificate of authenticity,
+ * and the plant, data and time that it was made.
  *
- * @author chach
+ * @author Nathan Barber
  */
 class Part extends CI_Model{
+    /*
+     * Mock data for the webapp to operate on for assignment one.
+     */
     var $data = array(
         array('partID' => '1', 'partCode' => 'A1', 'certID' => '000001', 'originPlany' => 'Houston',
             'dateBuilt' => '2/07/2017', 'timeBuilt' => '5:00pm'),
