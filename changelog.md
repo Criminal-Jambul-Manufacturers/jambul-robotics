@@ -147,3 +147,17 @@ Release Date: February 12, 2017
 - Models
 
     - Parts (AF)
+    
+## *Version 0.36*
+
+Release Date: February 12, 2017
+
+## Updated Components
+
+- Views
+
+    - Part (AF)
+    
+    - getPartInfo (AF)
+    
+    - Template (AF)
