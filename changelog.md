@@ -33,3 +33,13 @@ Release Date: February 11, 2017
 - Models
 
     - Part (NB)
+
+## *Version 0.21*
+
+Release Date: February 11, 2017
+
+## New Components
+
+- Models
+
+    - Robot (NB)
