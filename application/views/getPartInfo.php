@@ -1,4 +1,4 @@
 <h2>{id}</h2>
-ID: {certID}
-Origin: {plant}
-Build Time: {date} {time}
+ID: {certID}<br/>
+Origin: {plant}<br/>
+Build Time: {date} {time}<br/>
