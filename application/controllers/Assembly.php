@@ -2,13 +2,14 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-public function __construct() {
-	$this->load->model('assembly');
-}
+
 
 class Assembly extends Application
 {
 
+	public function __construct() {
+		$this->load->model('assembly');
+	}
 	/**
 	 * Index Page for this controller.
 	 *
