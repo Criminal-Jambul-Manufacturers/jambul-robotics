@@ -2,6 +2,10 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+public function __construct() {
+	$this->load->model('assembly');
+}
+
 class Assembly extends Application
 {
 
@@ -30,7 +34,7 @@ class Assembly extends Application
 	{
 		$this->data['pagebody'] = 'assembly';
 		$source = $this->parts->get($chosenParts);
-        $this->data = array_merge($this->data, $source);
+        this->data['assembly'] = $this->assembly->all ();
 		$this->render(); 
 	}
     
