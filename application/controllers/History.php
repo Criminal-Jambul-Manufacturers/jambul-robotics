@@ -1,24 +1,22 @@
 <?php
 
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class History extends Application
 {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/
-	 * 	- or -
-	 * 		http://example.com/welcome/index
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
-	{
-		$this->data['pagebody'] = 'history';
-		$this->render();
-	}
 
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('transaction');
+        //$this->load->database();
+    }
+
+    public function index()
+    {
+            //$this->load->model('history');
+            $this->data['pagebody'] = 'history';
+            $this->data['history'] = $this->transaction->all ();
+            $this->render(); 
+    }
 }
