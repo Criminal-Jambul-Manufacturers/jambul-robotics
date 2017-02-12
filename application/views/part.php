@@ -1,3 +1,4 @@
+<h2>Parts</h2>
 <div class="row">
     {part}
     <div class="col-xs-3">
