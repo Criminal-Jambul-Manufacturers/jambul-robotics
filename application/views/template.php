@@ -12,16 +12,16 @@
         <div id="title">
             <img id="title-img" src="/assets/img/logo.png" height="100px" width="100px" /><h1>Jambul Robotics</h1>
         </div>
-        <div id="header-container">
+        <div id="header-container" class="container">
             <header id="header">
                 {headcontent}
             </header>
         </div>
-        <div id="container">
+        <div id="container" class="container">
             <div id="content">
                 {content}
             </div>
-            <footer id="footer">
+            <footer id="footer" class="span12">
                 {footcontent}
             </footer>
         </div>
