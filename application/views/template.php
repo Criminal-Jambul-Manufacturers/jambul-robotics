@@ -8,10 +8,21 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/default.css"/>
 	</head>
 	<body>
+        <div id="title">
+            <img id="title-img" src="/assets/img/logo.png" height="100px" width="100px" /><h1>Jambul Robotics</h1>
+        </div>
+        <div id="header-container">
+            <header id="header">
+                {headcontent}
+            </header>
+        </div>
         <div id="container">
-			{content}
-			<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. 
-				{ci_version}</p>
+            <div id="content">
+                {content}
+            </div>
+			<footer id="footer">
+                {footcontent}
+            </footer>
         </div>
 	</body>
 </html>

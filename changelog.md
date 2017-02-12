@@ -53,3 +53,23 @@ Release Date: February 11, 2017
 - Models
 
     - History (NB)
+
+## *Version 0.3*
+
+Release Date: February 11, 2017
+
+## Updated Components
+
+- Views
+
+    - Template (AF)
+
+- Assets
+
+    - Default CSS (AF)
+
+## New components
+
+- Assets
+
+    - Icon (AF)
