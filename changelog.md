@@ -181,3 +181,21 @@ Release Date: February 12, 2017
 - Model
 
     - Transaction (CK)
+    
+## *Version 0.41*
+
+Release Date: February 12, 2017
+
+## New Components
+
+- Assets
+
+    - Parts (AF)
+    
+## Updated Components
+
+- Views
+
+    - Part (AF)
+    
+    - getPartInfo (AF)
