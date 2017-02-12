@@ -106,4 +106,15 @@ Release Date: February 11, 2017
     - Assembly.php
 
 
+## *Version 0.33*
+
+Release Date: February 12, 2017
+
+## New Components 
+
+- Views
+
+    - footer.php
+
+
     
