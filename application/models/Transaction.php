@@ -14,7 +14,7 @@
  *
  * @author chach
  */
-class History extends CI_Model{
+class Transaction extends CI_Model{
     /*
      * Mock data for the use of assignment 1.
      */

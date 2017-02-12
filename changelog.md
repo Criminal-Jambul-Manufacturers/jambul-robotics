@@ -161,3 +161,23 @@ Release Date: February 12, 2017
     - getPartInfo (AF)
     
     - Template (AF)
+
+## *Version 0.4*
+
+Release Date: February 12, 2017
+
+## New Components
+
+- View
+
+    - History (CK)
+
+## Updated Components
+
+- Controller
+
+    - History (CK)
+
+- Model
+
+    - Transaction (CK)
