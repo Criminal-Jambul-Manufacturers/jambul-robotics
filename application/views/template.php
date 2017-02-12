@@ -21,7 +21,7 @@
             <div id="content">
                 {content}
             </div>
-			<footer id="footer">
+            <footer id="footer">
                 {footcontent}
             </footer>
         </div>
