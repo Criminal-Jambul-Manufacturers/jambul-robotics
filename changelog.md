@@ -129,3 +129,21 @@ Release Date: February 12, 2017
 - Controllers
 
     - MY_CONTROLLER (CK)
+    
+## *Version 0.35*
+
+Release Date: February 12, 2017
+
+## New Components
+
+- Views
+
+    - Part (AF)
+    
+    - getPartInfo (AF)
+    
+## Updated Components
+
+- Models
+
+    - Parts (AF)
