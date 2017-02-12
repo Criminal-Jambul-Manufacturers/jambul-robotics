@@ -46,6 +46,28 @@ a:hover {
     color: #AA55E2;
 }
 
+.list-inline>li {
+    margin: 0px;
+    padding: 0px;
+}
+
+header a {
+    -o-transition: 0.25s;
+    -ms-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    color: #431363;
+    padding: 12px;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: #FFFFFF;
+    background-color: #431363;
+    text-decoration: none;
+}
+
 h1 {
 	color: #431363;
 	font-size: 42px;
