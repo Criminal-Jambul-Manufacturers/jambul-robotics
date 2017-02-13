@@ -21,12 +21,26 @@ class Assembly extends Application
     
         public function __construct() {
             parent::__construct();
-            $this->load->model('assembly');
+            $this->load->model('part');
+	  		$this->load->model('robot');
         }
     
 	public function index()
 	{
             $this->data['pagebody'] = 'assembly';
+		    $this->data['assembly'] = $this->robot->all();
+			$this->data['head'] = $this->part->allOfType(1);
+		    $this->data['torso'] = $this->part->allOfType(2);
+			$this->data['legs'] = $this->part->allOfType(3);
+
+			$robots  = $this->robot->all();
+			foreach($robots as $robot) {
+				$robot['head'] = ($this->part->getPartInfo($robot['headID']))['partCode'];
+				$robot['torso'] =  ($this->part->getPartInfo($robot['torsoID']))['partCode'];
+				$robot['bottom'] = ($this->part->getPartInfo($robot['bottomID']))['partCode'];
+			}
+			$this->data['robots'] = $robots;
+
             $this->render(); 
 	}
 
@@ -35,9 +49,7 @@ class Assembly extends Application
 	// the user has selected.
 	public function assemble($chosenParts)
 	{
-            $this->data['pagebody'] = 'assembly';
             $source = $this->parts->get($chosenParts);
-            $this->data['assembly'] = $this->assembly->all();
             $this->render(); 
 	}
     
