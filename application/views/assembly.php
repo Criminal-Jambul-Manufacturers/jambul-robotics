@@ -1,4 +1,3 @@
-
 <div>
     <h1>Assembly</h1>
     <br/><br/><br/>
@@ -44,20 +43,20 @@
 <div class="row">
 {robots}
     <h3>Robot {robotID}</h3>
-    <div class="col-xs-3">
-            <a href="{headID}">
+    <div class="col-xs-4">
+            <a href="/parts/onePart/{headID}">
             <img src="assets/img/parts/{head}.jpeg" width="50%" height="50%"/></br>
         {head}</a>
     </div>
-    <div class="col-xs-3">
-            <a href="{torsoID}">
+    <div class="col-xs-4">
+            <a href="/parts/onePart/{torsoID}">
             <img src="assets/img/parts/{torso}.jpeg" width="50%" height="50%"/></br>
         {torso}</a>
     </div>
-    <div class="col-xs-3">
-            <a href="{bottomID}">
+    <div class="col-xs-4">
+            <a href="/parts/onePart/{bottomID}">
             <img src="assets/img/parts/{bottom}.jpeg" width="50%" height="50%"/></br>
-        bottom}</a>
+        {bottom}</a>
     </div>
 {/robots}
 </div>
