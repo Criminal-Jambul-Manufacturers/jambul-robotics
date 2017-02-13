@@ -19,17 +19,17 @@ class Robot extends CI_Model{
     /*
      * Mock data for the webapp to operate on for assignment one.
      */
-   var $data = array(
+   var $robots = array(
        array('robotID' => 1, 'headID' => 1, 'torsoID' => 2,
-           'bottomID' => 3, 'model' => 'Household').
+           'bottomID' => 3, 'model' => 'Household'),
        array('robotID' => 2, 'headID' => 4, 'torsoID' => 5,
-           'bottomID' => 6, 'model' => 'Household').
+           'bottomID' => 6, 'model' => 'Household'),
        array('robotID' => 3, 'headID' => 1, 'torsoID' => 2,
-           'bottomID' => 6, 'model' => 'Household').
+           'bottomID' => 6, 'model' => 'Household'),
        array('robotID' => 4, 'headID' => 1, 'torsoID' => 5,
-           'bottomID' => 3, 'model' => 'Household').
+           'bottomID' => 3, 'model' => 'Household'),
        array('robotID' => 5, 'headID' => 4, 'torsoID' => 2,
-           'bottomID' => 3, 'model' => 'Household').
+           'bottomID' => 3, 'model' => 'Household'),
        array('robotID' => 6, 'headID' => 4, 'torsoID' => 5,
            'bottomID' => 3, 'model' => 'Household')
    );
@@ -49,7 +49,7 @@ class Robot extends CI_Model{
      * owned by Jambul Robotics
      */
    public function all() {
-       return $this->data;
+       return $this->robots;
    }
    
    /*
@@ -60,7 +60,7 @@ class Robot extends CI_Model{
     * @return aeeay - the robot with the passed in ID.
     */
    public function getRobot($robotID) {
-       foreach($this->data as $robot)
+       foreach($this->robots as $robot)
            if($robot['robotID'] == $robotID)
                return $robot;
    }
@@ -72,6 +72,6 @@ class Robot extends CI_Model{
     * @return int - returns the number of robots owned by Jambul Robotics
     */
    public function numRobots() {
-       return count($this->data);
+       return count($this->robots);
    }
 }
