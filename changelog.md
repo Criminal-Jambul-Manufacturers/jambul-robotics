@@ -231,3 +231,13 @@ Release Date: February 12, 2017
 - Views
 
     - Template (AF)
+
+## *Version 0.431*
+
+Release Date: February 12, 2017
+    
+## Updated Components
+
+- Models
+    
+    - Robot (NB)
