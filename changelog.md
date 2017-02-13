@@ -199,3 +199,25 @@ Release Date: February 12, 2017
     - Part (AF)
     
     - getPartInfo (AF)
+
+## *Version 0.42*
+
+Release Date: February 12, 2017
+    
+## Updated Components
+
+- Models
+
+    - Part (NB)
+    
+    - Robot (NB)
+
+## *Version 0.421*
+
+Release Date: February 12, 2017
+    
+## Updated Components
+
+- Models
+    
+    - Robot (NB)
