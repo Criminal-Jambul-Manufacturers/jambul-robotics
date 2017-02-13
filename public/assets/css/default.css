@@ -1,11 +1,12 @@
-::selection { background-color: #E13300; color: white; }
-::-moz-selection { background-color: #E13300; color: white; }
+
+::selection { background-color: #44DFBC; color: white; }
+::-moz-selection { background-color: #44DFBC; color: white; }
 
 body {
 	background-color: #fff;
 	margin: 40px;
 	font: 13px/20px normal Helvetica, Arial, sans-serif;
-	color: #4F5155;
+	color: #431363;
 }
 
 a {
@@ -14,21 +15,90 @@ a {
 	font-weight: normal;
 }
 
+#title {
+	margin: 0 0 0 0;
+	padding: 5px 15px 10px 15px;
+    height: 110px;
+    display: block;
+}
+
+#title-img {
+    display: block;
+    margin-right: 20px;
+    float: left;
+}
+
+#header-container {
+    font-size: 18px;
+	color: #431363;
+    position: relative;
+    height: 110px;
+}
+
+header {
+    position: absolute;
+    bottom: 0;
+    right: 40px;
+}
+
+a {
+    -o-transition: 0.25s;
+    -ms-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    color: #6644DD;
+}
+
+a:hover {
+    color: #AA55E2;
+}
+
+.list-inline>li {
+    margin: 0px;
+    padding: 0px;
+}
+
+header a {
+    -o-transition: 0.25s;
+    -ms-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    color: #431363;
+    padding: 12px;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: #FFFFFF;
+    background-color: #431363;
+    text-decoration: none;
+}
+
 h1 {
-	color: #444;
-	background-color: transparent;
+	color: #431363;
+	font-size: 42px;
+	font-weight: normal;
+    padding-top: 18px;
+}
+
+h2 {
+	color: #FFFFFF;
+	background-color: #431363;
 	border-bottom: 1px solid #D0D0D0;
 	font-size: 19px;
 	font-weight: normal;
 	margin: 0 0 14px 0;
 	padding: 14px 15px 10px 15px;
+    padding: 20px;
 }
 
 code {
 	font-family: Consolas, Monaco, Courier New, Courier, monospace;
 	font-size: 12px;
 	background-color: #f9f9f9;
-	border: 1px solid #D0D0D0;
+	border: 1px solid #B899C1;
 	color: #002166;
 	display: block;
 	margin: 14px 0 14px 0;
@@ -39,17 +109,21 @@ code {
 	margin: 0 15px 0 15px;
 }
 
+footer {
+    border-top: 1px solid #B899C1;
+    padding: 5px;
+    font-size: 12px;
+}
+
 p.footer {
 	text-align: right;
 	font-size: 11px;
-	border-top: 1px solid #D0D0D0;
+	border-top: 1px solid #B899C1;
 	line-height: 32px;
 	padding: 0 10px 0 10px;
 	margin: 20px 0 0 0;
 }
 
 #container {
-	margin: 10px;
-	border: 1px solid #D0D0D0;
-	box-shadow: 0 0 8px #D0D0D0;
+	border: 1px solid #431363; 
 }
