@@ -21,15 +21,15 @@ class Robot extends CI_Model{
      */
    var $robots = array(
        array('robotID' => 1, 'headID' => 1, 'torsoID' => 2,
-           'bottomID' => 3, 'model' => 'Household').
+           'bottomID' => 3, 'model' => 'Household'),
        array('robotID' => 2, 'headID' => 4, 'torsoID' => 5,
-           'bottomID' => 6, 'model' => 'Household').
+           'bottomID' => 6, 'model' => 'Household'),
        array('robotID' => 3, 'headID' => 1, 'torsoID' => 2,
-           'bottomID' => 6, 'model' => 'Household').
+           'bottomID' => 6, 'model' => 'Household'),
        array('robotID' => 4, 'headID' => 1, 'torsoID' => 5,
-           'bottomID' => 3, 'model' => 'Household').
+           'bottomID' => 3, 'model' => 'Household'),
        array('robotID' => 5, 'headID' => 4, 'torsoID' => 2,
-           'bottomID' => 3, 'model' => 'Household').
+           'bottomID' => 3, 'model' => 'Household'),
        array('robotID' => 6, 'headID' => 4, 'torsoID' => 5,
            'bottomID' => 3, 'model' => 'Household')
    );
