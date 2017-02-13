@@ -255,3 +255,13 @@ Release Date: February 12, 2017
 - Models
     
     - Robot (NB)
+    
+## *Version 0.46*
+
+Release Date: February 12, 2017
+
+## Updated Components
+
+- Views
+
+    - Welcome (AF)
