@@ -21,7 +21,22 @@ class Transaction extends CI_Model{
     var $data = array(
         array('transactionID' => 1, 'transactionType' => 'Purchase',
             'description' => 'Purchased box of 10 parts', 'cost' => 100.00,
-            'date' => '2/11/2017', 'time' => '7:00pm')
+            'date' => '2/11/2017', 'time' => '7:00pm'),
+        array('transactionID' => 2, 'transactionType' => 'Assembly',
+            'description' => 'Assembled A-line household bot', 'cost' => 0.00,
+            'date' => '2/12/2017', 'time' => '4:01pm'),
+        array('transactionID' => 3, 'transactionType' => 'Assembly',
+            'description' => 'Assembled combination household bot',
+            'cost' => 0.00, 'date' => '2/12/2017', 'time' => '4:02pm'),
+        array('transactionID' => 4, 'transactionType' => 'Shipment',
+            'description' => 'Shipped A-line household bot', 'cost' => 50.00,
+            'date' => '2/12/2017', 'time' => '4:03pm'),
+        array('transactionID' => 5, 'transactionType' => 'Shipment',
+            'description' => 'Shipped combination household bot',
+            'cost' => 25.00, 'date' => '2/12/2017', 'time' => '4:04pm'),
+        array('transactionID' => 6, 'transactionType' => 'Purchase',
+            'description' => 'Purchased box of 10 parts', 'cost' => 100.00,
+            'date' => '2/12/2017', 'time' => '4:05pm')
     );
     
     /*

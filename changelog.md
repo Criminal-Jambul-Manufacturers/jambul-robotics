@@ -245,3 +245,13 @@ Release Date: February 12, 2017
 - Controller
 
     - welcome (CK)
+
+## *Version 0.45*
+
+Release Date: February 12, 2017
+    
+## Updated Components
+
+- Models
+    
+    - Robot (NB)
