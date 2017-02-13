@@ -232,7 +232,21 @@ Release Date: February 12, 2017
 
     - Template (AF)
 
-## *Version 0.431*
+## *Version 0.44*
+
+Release Date: February 12, 2017
+
+## Updated Components
+
+- Views
+
+    - header (CK)
+
+- Controller
+
+    - welcome (CK)
+
+## *Version 0.45*
 
 Release Date: February 12, 2017
     
