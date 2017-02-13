@@ -265,3 +265,17 @@ Release Date: February 12, 2017
 - Views
 
     - Welcome (AF)
+    
+## *Version 0.47*
+
+Release Date: February 12, 2017
+
+## Updated Components
+
+- Views
+
+    - Assembly (ZK) (AF)
+    
+- Controllers
+
+    - Assembly (ZK) (AF)
