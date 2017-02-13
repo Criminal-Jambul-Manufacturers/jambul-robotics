@@ -231,3 +231,27 @@ Release Date: February 12, 2017
 - Views
 
     - Template (AF)
+
+## *Version 0.44*
+
+Release Date: February 12, 2017
+
+## Updated Components
+
+- Views
+
+    - header (CK)
+
+- Controller
+
+    - welcome (CK)
+
+## *Version 0.45*
+
+Release Date: February 12, 2017
+    
+## Updated Components
+
+- Models
+    
+    - Robot (NB)
