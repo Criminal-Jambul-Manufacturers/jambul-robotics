@@ -9,15 +9,20 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/default.css"/>
 	</head>
 	<body>
-        <div id="title">
-            <img id="title-img" src="/assets/img/logo.png" height="100px" width="100px" /><h1>Jambul Robotics</h1>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="title">
+                    <img id="title-img" src="/assets/img/logo.png" height="100px" width="100px" /><h1>Jambul Robotics</h1>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="header-container">
+                    <header id="header">
+                        {headcontent}
+                    </header>
+                </div>
+            </div>
         </div>
-        <div id="header-container" class="container">
-            <header id="header">
-                {headcontent}
-            </header>
         </div>
-        <div id="container" class="container">
+        <div id="container" class="container-fluid">
             <div id="content">
                 {content}
             </div>
