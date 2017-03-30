@@ -36,8 +36,11 @@ class Assembly extends Application
 			$robots = $this->robot->all();
 			foreach($robots as &$robot) {
                 $robot['head'] = $this->part->getPartInfo($robot['headID'])['partCode'];
+                $robot['headImg'] = $this->part->getPartInfo($robot['headID'])['partImg'];
                 $robot['torso'] = $this->part->getPartInfo($robot['torsoID'])['partCode'];
+                $robot['torsoImg'] = $this->part->getPartInfo($robot['torsoID'])['partImg'];
                 $robot['bottom'] = $this->part->getPartInfo($robot['bottomID'])['partCode'];
+                $robot['bottomImg'] = $this->part->getPartInfo($robot['bottomID'])['partImg'];
 			}
 			$this->data['robots'] = $robots;
 

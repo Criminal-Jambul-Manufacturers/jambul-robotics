@@ -4,7 +4,7 @@
     <div class="col-xs-3">
     
         <a href="/parts/onePart/{partID}">
-        <img src="/assets/img/parts/{partCode}.jpeg" width="50%" height="50%"/></br>
+        <img src="/assets/img/parts/{partImg}" width="50%" height="50%"/></br>
         {partCode} (Cert: {certID})</a>
     </div>
     {/part}
