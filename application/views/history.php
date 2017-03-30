@@ -1,10 +1,20 @@
-<ul class="list-inline" style="text-align: center;">
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Cost</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
     {history}
-    <li>{transactionID}</li>
-    <li>{transactionType}</li>
-    <li>{description}</li>
-    <li>{cost}</li>
-    <li>{date}</li>
-    <li>{time}</li>
-    {/history}
-</ul>
+    <tr>
+        <td>{transactionID}</td>
+        <td>{transactionType}</td>
+        <td>{description}</td>
+        <td>{cost}</td>
+        <td>{date}</td>
+        <td>{time}</td>
+    </tr>
+    {/history}    
+</table>
