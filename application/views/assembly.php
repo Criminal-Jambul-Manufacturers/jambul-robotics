@@ -46,7 +46,7 @@
     <div class="col-xs-4">
             <a href="/parts/onePart/{headID}">
             <img src="/assets/img/parts/{head}.jpeg" width="50%" height="50%"/></br>
-        {head}</a>
+        {headID}</a>
     </div>
     <div class="col-xs-4">
             <a href="/parts/onePart/{torsoID}">
