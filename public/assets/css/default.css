@@ -9,6 +9,10 @@ body {
 	color: #431363;
 }
 
+.robot-part {
+    text-align: center;
+}
+
 a {
 	color: #003399;
 	background-color: transparent;
@@ -123,6 +127,7 @@ p.footer {
 	padding: 0 10px 0 10px;
 	margin: 20px 0 0 0;
 }
+
 
 #container {
 	border: 1px solid #431363; 
