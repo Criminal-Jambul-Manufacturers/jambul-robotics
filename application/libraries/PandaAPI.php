@@ -62,7 +62,8 @@ class PandaAPI {
     // Gets the job of a particular factory
     // Returns null on failure, string on success
     public function getJob(team) {
-        return null;
+        $response = file_get_contents('https://umbrella.jlparry.com/info/job/' . team);
+        return $response != "Oops: invalid team name given." ? response : null;
     }
     // Get all of the teams participating
     // Returns an array of team names on success, null on failure
