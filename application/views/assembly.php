@@ -45,17 +45,17 @@
     <h4>Robot {robotID}</h4>
     <div class="col-xs-4 robot-part">
             <a href="/parts/onePart/{headID}">
-            <img src="/assets/img/parts/{head}.jpeg" width="50%" height="50%"/></br>
+            <img src="/assets/img/parts/{headImg}" width="50%" height="50%"/></br>
         {head} ({headID})</a>
     </div>
     <div class="col-xs-4 robot-part">
             <a href="/parts/onePart/{torsoID}">
-            <img src="/assets/img/parts/{torso}.jpeg" width="50%" height="50%"/></br>
+            <img src="/assets/img/parts/{torsoImg}" width="50%" height="50%"/></br>
         {torso} ({torsoID})</a>
     </div>
     <div class="col-xs-4 robot-part">
             <a href="/parts/onePart/{bottomID}">
-            <img src="/assets/img/parts/{bottom}.jpeg" width="50%" height="50%"/></br>
+            <img src="/assets/img/parts/{bottomImg}" width="50%" height="50%"/></br>
         {bottom} ({torsoID})</a>
     </div>
 {/robots}
