@@ -27,7 +27,7 @@ class Parts extends Application
         $this->data['pagebody'] = 'getPartInfo';
         $source = $this->part->getPartInfo($partID);
         $this->data['id'] = $source['partCode'];
-        $this->data['img'] = $source['pardImg'];
+        $this->data['img'] = $source['partImg'];
         $this->data['certID'] = $source['certID'];
         $this->data['plant'] = $source['originPlany'];
         $this->data['date'] = $source['dateBuilt'];
