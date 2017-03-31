@@ -33,12 +33,12 @@ class PandaAPI {
     }
     // Gets part info based on the passed in certificate
     // Returns null on failure
-    public function getPartInfo(cert) {
+    public function getPartInfo($cert) {
         return null;
     }
     // Recycles the passed in array of parts objects
     // Returns true on success, false otherwise
-    public function recycle(parts) {
+    public function recycle($parts) {
         return false;
     }
     // Invalidates the API key
@@ -46,22 +46,22 @@ class PandaAPI {
     }
     // Gets a team's balance
     // Returns null on failure
-    public function getBalance(team) {
+    public function getBalance($team) {
         return null;
     }
     // Gets the scoop on a team (in an object)
     // Returns null on failure, an object on success
-    public function getScoop(team) {
+    public function getScoop($team) {
         return null;
     }
     // Get who makes a particular part type
     // Returns null on failure, string on success
-    public function whoMakes(part) {
+    public function whoMakes($part) {
         return null;
     }
     // Gets the job of a particular factory
     // Returns null on failure, string on success
-    public function getJob(team) {
+    public function getJob($team) {
         $response = file_get_contents('https://umbrella.jlparry.com/info/job/' . team);
         return $response != "Oops: invalid team name given." ? response : null;
     }
