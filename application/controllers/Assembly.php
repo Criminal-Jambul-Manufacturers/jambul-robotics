@@ -22,7 +22,7 @@ class Assembly extends Application
         public function __construct() {
             parent::__construct();
             $this->load->model('part');
-	  		$this->load->model('robot');
+            $this->load->model('robot');
         }
     
 	public function index()
