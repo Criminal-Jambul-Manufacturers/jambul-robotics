@@ -68,6 +68,8 @@ class PandaAPI {
     // Get all of the teams participating
     // Returns an array of team names on success, null on failure
     public function getTeams() {
-        return null;
+        $response = file_get_contents('https://umbrella.jlparry.com/info/teams');
+        $response = preg_replace("/[\"\\[\\]]/", "", $response);
+        return explode(",", $response);
     }
 }
