@@ -14,10 +14,16 @@ class Parts extends Application
 
 	public function index()
 	{
-            //$this->load->model('part');
-            $this->data['pagebody'] = 'part';
-            $this->data['part'] = $this->part->all();
-            $this->render(); 
+            if($this->session->userdata('userrole') != ROLE_WORKER)
+            {
+                redirect($_SERVER['HTTP_REFERER']);
+            }
+            else
+            {
+                $this->data['pagebody'] = 'part';
+                $this->data['part'] = $this->part->all();
+                $this->render();
+            }
 	}
     
 
@@ -25,7 +31,7 @@ class Parts extends Application
     public function onePart($partID) {
 
         $this->data['pagebody'] = 'getPartInfo';
-        $source = $this->part->getPartInfo($partID);
+        $source = $this->part->just1($partID);
         $this->data['id'] = $source['partCode'];
         $this->data['img'] = $source['partImg'];
         $this->data['certID'] = $source['certID'];
