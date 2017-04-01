@@ -5,6 +5,8 @@
     <li>&bull;</li>
     <li><a href="/parts">Parts</a></li>
     <li>&bull;</li>
+    <li><a href="/manage">Manage</a></li>
+    <li>&bull;</li>
     <li><a href="/history">History</a></li>
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Role<b class="caret"></b></a>
