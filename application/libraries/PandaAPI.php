@@ -55,9 +55,14 @@ class PandaAPI {
         return null;
     }
     // Get who makes a particular part type
-    // Returns null on failure, string on success
+    // Returns null on failure, array of strings on success
     public function whoMakes($part) {
-        return null;
+        $response = file_get_contents('https://umbrella.jlparry.com/info/whomakes/' . $part);
+        if ($response == false || $response == "Oops: no factory is making the specified part.") {
+            return null;
+        }
+        $response = preg_replace("/[\"\\[\\]]/", "", $response);
+        return explode(",", $response);
     }
     // Gets the job of a particular factory
     // Returns null on failure, string on success
