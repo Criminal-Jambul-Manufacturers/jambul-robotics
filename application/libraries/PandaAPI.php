@@ -52,7 +52,11 @@ class PandaAPI {
     // Gets the scoop on a team (in an object)
     // Returns null on failure, an object on success
     public function getScoop($team) {
-        return null;
+        $response = file_get_contents('https://umbrella.jlparry.com/info/scoop/' . $team);
+        if ($response == false || $response == "Oops: invalid team name given.") {
+            return null;
+        }
+        return json_decode($response);
     }
     // Get who makes a particular part type
     // Returns null on failure, array of strings on success

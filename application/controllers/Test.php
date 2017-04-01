@@ -15,7 +15,7 @@ class Test extends Application
     public function index()
     {
         $this->data['pagebody'] = 'test';
-        $this->data['testmsg'] = $this->pandaapi->whoMakes("a1")[0];
+        $this->data['testmsg'] = $this->pandaapi->getScoop("jambul")->last_made;
         $this->render(); 
     }
 }
