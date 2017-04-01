@@ -69,6 +69,9 @@ class PandaAPI {
     // Returns an array of team names on success, null on failure
     public function getTeams() {
         $response = file_get_contents('https://umbrella.jlparry.com/info/teams');
+        if ($response == false) {
+            return null;
+        }
         $response = preg_replace("/[\"\\[\\]]/", "", $response);
         return explode(",", $response);
     }
