@@ -4,6 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class PandaAPI {
     public function __construct() {
         // Todo: Get the API key from the model, if it exists
+        $this->apikey = null;
+    }
+    private function getKey() {
+        if (is_null($this->apikey)) {
+            // Todo: Get the API key from the server
+            $this->apikey = "";
+        }
+        return $this->apikey;
     }
     // Purchase a box
     // Returns an array of "part" objects, or null on failure
@@ -43,6 +51,8 @@ class PandaAPI {
     }
     // Invalidates the API key
     public function endSession() {
+        $response = file_get_contents('https://umbrella.jlparry.com/work/goodbye?key=' . $this->getKey());
+        return $response == "Ok";
     }
     // Gets a team's balance
     // Returns null on failure
