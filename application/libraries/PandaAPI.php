@@ -47,7 +47,8 @@ class PandaAPI {
     // Gets a team's balance
     // Returns null on failure
     public function getBalance($team) {
-        return null;
+        $response = file_get_contents('https://umbrella.jlparry.com/info/balance/' . $team);
+        return $response != "Oops: invalid team name given." && $response != false ? $response : null;
     }
     // Gets the scoop on a team (in an object)
     // Returns null on failure, an object on success
