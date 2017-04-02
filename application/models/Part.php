@@ -21,4 +21,18 @@ class Part extends MY_Model{
     public function __construct() {
         parent::__construct('part','partID');
     }
+    
+    public function allOfType($type) {
+        $parts = $this->all();
+        
+        $partsOfType = array();
+        
+        foreach($parts as $part) {
+            if($part->partCode[1] == $type) {
+                $partsOfType = $part;
+            }
+        }
+        
+        return $parts;
+    }
 }
