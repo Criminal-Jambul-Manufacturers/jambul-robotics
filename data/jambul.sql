@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.6
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 02, 2017 at 06:33 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Host: localhost
+-- Generation Time: Apr 02, 2017 at 02:51 PM
+-- Server version: 5.6.35
+-- PHP Version: 5.6.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `config`
 --
 
+DROP TABLE IF EXISTS `config`;
 CREATE TABLE `config` (
   `configKey` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `configValue` varchar(20) CHARACTER SET latin1 DEFAULT NULL
@@ -37,13 +38,14 @@ CREATE TABLE `config` (
 -- Table structure for table `part`
 --
 
+DROP TABLE IF EXISTS `part`;
 CREATE TABLE `part` (
-  `partID` int(11) NOT NULL DEFAULT '0',
-  `partCode` varchar(2) CHARACTER SET latin1 NOT NULL,
-  `certID` int(11) NOT NULL,
-  `originPlant` varchar(20) CHARACTER SET latin1 NOT NULL,
-  `timeBuilt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `used` tinyint(1) NOT NULL DEFAULT '0'
+  `partID` int(11) NOT NULL,
+  `model` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `piece` tinyint(1) NOT NULL,
+  `stamp` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `id` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
+  `plant` varchar(32) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -52,6 +54,7 @@ CREATE TABLE `part` (
 -- Table structure for table `robot`
 --
 
+DROP TABLE IF EXISTS `robot`;
 CREATE TABLE `robot` (
   `robotID` int(11) NOT NULL,
   `headID` int(11) NOT NULL,
@@ -67,6 +70,7 @@ CREATE TABLE `robot` (
 -- Table structure for table `transaction`
 --
 
+DROP TABLE IF EXISTS `transaction`;
 CREATE TABLE `transaction` (
   `transactionID` int(11) NOT NULL,
   `description` varchar(100) CHARACTER SET latin1 NOT NULL,
@@ -109,6 +113,25 @@ ALTER TABLE `transaction`
   ADD KEY `FK_TRANSACTION_ROBOT` (`robot`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `part`
+--
+ALTER TABLE `part`
+  MODIFY `partID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `robot`
+--
+ALTER TABLE `robot`
+  MODIFY `robotID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- Constraints for dumped tables
 --
 
@@ -119,12 +142,6 @@ ALTER TABLE `robot`
   ADD CONSTRAINT `FK_BOTTOM_PART` FOREIGN KEY (`bottomID`) REFERENCES `part` (`partID`),
   ADD CONSTRAINT `FK_HEAD_PART` FOREIGN KEY (`headID`) REFERENCES `part` (`partID`),
   ADD CONSTRAINT `FK_TORSO_PART` FOREIGN KEY (`torsoID`) REFERENCES `part` (`partID`);
-
---
--- Constraints for table `transaction`
---
-ALTER TABLE `transaction`
-  ADD CONSTRAINT `FK_TRANSACTION_ROBOT` FOREIGN KEY (`robot`) REFERENCES `robot` (`robotID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
