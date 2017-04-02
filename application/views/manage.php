@@ -20,6 +20,7 @@
         </div>
     </div>
     <div>
+        </br></br>
         <button class="btn btn-primary" onclick='reboot()'>REBOOT</button>
     </div>
     <div>
@@ -32,7 +33,7 @@
                 </tr> 
             </thead>
             <tbody>
-                {robot}
+                {bot}
                 <tr>
                     <td>
                         {BOT_ID}
@@ -49,8 +50,9 @@
                         <button class='btn btn-sm' onclick='sellRobot("{BOT_ID}")'>Sell Me!</button>
                     </td>
                 </tr>
-                {/robot}
+                {/bot}
             </tbody>
         </table>    
+        </br></br>
     </div>
 </div>

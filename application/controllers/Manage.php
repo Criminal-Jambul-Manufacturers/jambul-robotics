@@ -6,6 +6,7 @@ class Manage extends Application
 {
     public function __construct() {
         parent::__construct();
+        $this->load->model('robot');
     }
 
     public function index()
@@ -35,7 +36,7 @@ class Manage extends Application
                     'IMG_BOTTOM' => $imgBottom);
             }
             
-            $this->data['robot'] = $robot;
+            $this->data['robot'] = $bots;
 
 
             $this->render();
