@@ -132,3 +132,21 @@ p.footer {
 #container {
 	border: 1px solid #431363; 
 }
+
+
+
+.buttonContainer {
+    text-align: right;
+    margin-left: 200px;
+}
+
+#rebootButton {
+     text-align: right;
+     margin-left: 200px;
+}
+
+
+.manageTableCells {
+    margin-left: 80px;
+
+}
