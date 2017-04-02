@@ -39,7 +39,8 @@ class PandaAPI {
     // Reboots the plant
     // Returns true on success, false on failure
     public function reboot() {
-        return false;
+        $response = file_get_contents('https://umbrella.jlparry.com/work/rebootme?key=' . $this->getKey());
+        return $response == "Ok";
     }
     // Checks who the user is
     // Returns the name of the plant
