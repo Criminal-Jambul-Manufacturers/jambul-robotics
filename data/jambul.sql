@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2017 at 08:26 PM
+-- Generation Time: Apr 02, 2017 at 06:33 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -27,8 +27,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `config` (
-  `secretPassword` varchar(20) CHARACTER SET latin1 DEFAULT NULL,
-  `apiKey` varchar(20) CHARACTER SET latin1 DEFAULT NULL
+  `configKey` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `configValue` varchar(20) CHARACTER SET latin1 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -79,6 +79,12 @@ CREATE TABLE `transaction` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `config`
+--
+ALTER TABLE `config`
+  ADD PRIMARY KEY (`configKey`) USING BTREE;
 
 --
 -- Indexes for table `part`
