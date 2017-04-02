@@ -22,6 +22,16 @@ class PandaAPI {
     }
     
     /*
+        public function setKey()
+        Sets the key to use to communicate with Panda
+        
+        $key -> The key to use
+    */
+    public function setKey($key) {
+        $this->apikey = $key;
+    }
+    
+    /*
         public function genKey($team, $pass)
         Generates a key for the API
         
@@ -31,7 +41,16 @@ class PandaAPI {
         Returns the generated key on successfully generating a new key, null otherwise
     */
     private function genKey($team, $pass) {
-        return "";
+        $response = file_get_contents('https://umbrella.jlparry.com/work/registerme/' . $team . '/' . $pass);
+        if ($response == false) {
+            return null;
+        }
+        $wordlist = explode(" ", $response);
+        if ($wordlist[0] != "Ok") {
+            return null;
+        }
+        
+        return $wordlist[1];
     }
     
     /*
@@ -43,8 +62,25 @@ class PandaAPI {
         
         Returns the new key if a new key was generated, the old key if the old one is still valid, null if something went wrong
     */
-    private function refreshKey($team, $pass) {
+    public function updateKey($team, $pass) {
+        if (!$this->keyIsValid()) {
+            $tmp = $this->genKey($team, $pass);
+            if (is_null($tmp)) {
+                return null;
+            }
+            $this->apikey = $tmp;
+        }
         return $this->apikey;
+    }
+    
+    /*  private function keyIsValid()
+    
+        Checks whether the current API key is valid or not
+        
+        Returns true on valid key, false if key is invalid
+    */
+    private function keyIsValid() {
+        return !is_null($this->whoAmI());
     }
     
     /*

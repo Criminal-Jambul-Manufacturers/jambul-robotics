@@ -15,7 +15,7 @@ class Test extends Application
     public function index()
     {
         $this->data['pagebody'] = 'test';
-        $this->data['testmsg'] = $this->pandaapi->recycle($partArr);
-        $this->render(); 
+        $this->data['testmsg'] = $this->pandaapi->updateKey('', '');
+        $this->render();
     }
 }
