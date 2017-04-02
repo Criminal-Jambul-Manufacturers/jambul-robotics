@@ -10,13 +10,14 @@ class Manage extends Application
         $this->load->model('part');
         $this->load->model('transaction');
         $this->load->library('pandaapi');
-        $this->load->model('config');
+        $this->load->model('control');
 
     }
 
     public function index()
     {
-        $secretPass = $this->config->just1('superSecretPass');
+        error_reporting(E_ALL ^ E_WARNING);
+        $secretPass = $this->control->just1('superSecretPass');
         $this->pandaapi->updateKey('jambul', $secretPass->configValue);
 
         $role = $this->session->userdata('userrole');
@@ -60,7 +61,7 @@ class Manage extends Application
 
     // Resets app.  Called by Manage View button.
     function reboot() {
-        $secretPass = $this->config->just1('superSecretPass');
+        $secretPass = $this->control->just1('superSecretPass');
         $this->pandaapi->updateKey('jambul', $secretPass->configValue);
         $response = $this->pandaapi->reboot();
 
@@ -82,14 +83,15 @@ class Manage extends Application
     // Resets app. Uses the Manage View input box forms.
     function register() {
         $inputData = $this->input->post();
-		$team =   $this->input->post("name");  //plant name
-		$token =  $this->input->post("secret"); //token password.
-        $secretPass = $this->config->just1('superSecretPass');
+		$team =   $this->input->post("registerName");  //plant name
+		$token =  $this->input->post("secret"); //old token password.
+        $newPass =  $this->input->post("newSecret");  //new password to be saved, if Old matches. 
+        $secretPass = $this->control->just1('superSecretPass');
         $this->pandaapi->updateKey('jambul', $secretPass->configValue);
         //If entered password is the same as their old password
         if($token == $secretPass->configValue) {  
             //let them make a new password
-            $this->pandaapi->genKey($team, $token);
+            $this->pandaapi->genKey($team, $newPass);
         }
         else {
             $this->pandaapi->updateKey('jambul', $secretPass->configValue);
@@ -100,19 +102,12 @@ class Manage extends Application
 
     //sell a robot. Called by Manage View button.
     function sellRobot($bot) {
-        $secretPass = $this->config->just1('superSecretPass');
+        $secretPass = $this->control->just1('superSecretPass');
         $this->pandaapi->updateKey('jambul', $secretPass->configValue);
 
 
         $profit = $this->pandaapi->sellRobot($bot);  //how much we get for a bot.
         echo "You sold this robot for". $profit . " dollars!";
-
-
     }
-
-
-
-
-
 
 }

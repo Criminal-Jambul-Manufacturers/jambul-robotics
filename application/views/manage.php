@@ -13,9 +13,15 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="secret">Secret</label>
+                <label class="col-sm-2 col-form-label" for="secret">Current Secret</label>
                 <div class="col-sm-10">
-                    <input type="password" name="secret" class="form-control" placeholder="nottelling" >
+                    <input type="password" name="secret" class="form-control" placeholder="my current secret" >
+                </div>
+            </div>    
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="secret">New Secret</label>
+                <div class="col-sm-10">
+                    <input type="password" name="newSecret" class="form-control" placeholder="my new secret" >
                 </div>
             </div>    
         </form>
