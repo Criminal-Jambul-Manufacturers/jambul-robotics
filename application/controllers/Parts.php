@@ -10,7 +10,7 @@ class Parts extends Application
         {
             parent::__construct();
             $this->load->model('part');
-            $this->load->model('config');
+            $this->load->model('control');
             $this->load->model('transaction');
             $this->load->library('pandaapi');
         }
@@ -53,7 +53,7 @@ class Parts extends Application
      */
     public function buildParts()
     {
-        $secretPass = $this->config->just1('superSecretPass')->configValue;
+        $secretPass = $this->control->just1('superSecretPass')->configValue;
         $this->pandaapi->updateKey('jambul', $secretPass);
         
         $builtParts = $this->pandaapi->getBuiltParts();
@@ -82,7 +82,7 @@ class Parts extends Application
      */
     public function buyParts()
     {
-        $secretPass = $this->config->just1('superSecretPass')->configValue;
+        $secretPass = $this->control->just1('superSecretPass')->configValue;
         $this->pandaapi->updateKey('jambul', $secretPass);
         
         $boughtParts = $this->pandaapi->buyPartBox();

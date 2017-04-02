@@ -23,6 +23,7 @@ class Assembly extends Application
         parent::__construct();
         $this->load->model('part');
         $this->load->model('robot');
+        $this->load->model('control');
     }
 
     public function index()
