@@ -9,14 +9,13 @@ class History extends Application
     public function __construct() {
         parent::__construct();
         $this->load->model('transaction');
-        //$this->load->database();
     }
 
     public function index()
     {
-            //$this->load->model('history');
+            error_reporting(E_ALL ^ E_WARNING);
             $this->data['pagebody'] = 'history';
-            $this->data['history'] = $this->transaction->all ();
+            $this->data['history'] = $this->transaction->all();
             $this->render(); 
     }
 }
