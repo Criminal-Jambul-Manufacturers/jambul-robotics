@@ -42,12 +42,12 @@ class Assembly extends Application
 
             $robots = $this->robot->all();
             foreach($robots as &$robot) {
-                $robot['head'] = $this->part->getPartInfo($robot['headID'])['partCode'];
-                $robot['headImg'] = $this->part->getPartInfo($robot['headID'])['partImg'];
-                $robot['torso'] = $this->part->getPartInfo($robot['torsoID'])['partCode'];
-                $robot['torsoImg'] = $this->part->getPartInfo($robot['torsoID'])['partImg'];
-                $robot['bottom'] = $this->part->getPartInfo($robot['bottomID'])['partCode'];
-                $robot['bottomImg'] = $this->part->getPartInfo($robot['bottomID'])['partImg'];
+                $robot['head'] = $this->part->just1($robot->headId)->partCode;
+                $robot['headImg'] = $this->part->just1($robot->headId)->partImg;
+                $robot['torso'] = $this->part->just1($robot->torsoID)->partCode;
+                $robot['torsoImg'] = $this->part->just1($robot->torsoID)->partImg;
+                $robot['bottom'] = $this->part->just1($robot->bottomID)->partCode;
+                $robot['bottomImg'] = $this->part->just1($robot->bottomID)->partImg;
             }
             $this->data['robots'] = $robots;
 
@@ -55,12 +55,8 @@ class Assembly extends Application
         }
     }
 
-
-    // Not sure if you guys want to use this. But I was thinking for passing in an array of combined parts
-    // the user has selected.
-    public function assemble($chosenParts)
+    public function assemble()
     {
-        $source = $this->parts->get($chosenParts);
         $this->render(); 
     }
     
