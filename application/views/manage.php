@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/default.css"/>
+</head>
 <h2>{pagetitle}</h2>
 <div class="row">
     <div>
@@ -9,31 +13,43 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="secret">Secret</label>
+                <label class="col-sm-2 col-form-label" for="secret">Current Secret</label>
                 <div class="col-sm-10">
-                    <input type="password" name="secret" class="form-control" placeholder="nottelling" >
+                    <input type="password" name="secret" class="form-control" placeholder="my current secret" >
+                </div>
+            </div>    
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="secret">New Secret</label>
+                <div class="col-sm-10">
+                    <input type="password" name="newSecret" class="form-control" placeholder="my new secret" >
                 </div>
             </div>    
         </form>
         <div class="col-sm-10">
-             <button type="submit" class="btn btn-primary">Register!</button>
+             <button type="submit" class="btn btn-primary" id="registerButton">Register!</button>
         </div>
     </div>
     <div>
         </br></br>
-        <button class="btn btn-primary" onclick='reboot()'>REBOOT</button>
+        </br></br>
+            <label class="col-sm-10 col-form-label" for="rebootButton" id="rebootLabel">Restart App</label>
+            <div class="col-sm-12">
+                <button class="btn btn-primary" onclick='reboot()' name="rebootButton" id="rebootButton">REBOOT</button>
+            </div>
+        </br></br>
+        </br></br>
     </div>
     <div>
         <table class="table-responsive">
             <thead>
                 <tr>
-                    <th>Bot ID</th>
-                    <th>Build Info</th>
-                    <th>Appearance</th>
+                    <th class="manageTableCells">Bot ID</th>
+                    <th class="manageTableCells">Build Info</th>
+                    <th class="manageTableCells">Appearance</th>
                 </tr> 
             </thead>
             <tbody>
-                {bot}
+                {robot}
                 <tr>
                     <td>
                         {BOT_ID}
@@ -47,10 +63,10 @@
                         <img src="/assets/img/parts/{IMG_BOTTOM}" width="50%" height="50%"/></br>
                     </td>
                     <td>
-                        <button class='btn btn-sm' onclick='sellRobot("{BOT_ID}")'>Sell Me!</button>
+                        <button class='btn btn-sm' onclick='sellRobot("{BOT_OBJECT}")'>Sell Me!</button>
                     </td>
                 </tr>
-                {/bot}
+                {/robot}
             </tbody>
         </table>    
         </br></br>
