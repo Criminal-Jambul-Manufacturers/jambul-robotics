@@ -6,7 +6,7 @@
     <nav class="form-group">
         <ul class="form-group">
         <h4>Head</h4>
-            <form name="headForm" class="form-group">
+            <form name="robotForm" class="form-group" method="post" action="/assembly/assemble">
                 <div align="center">
                     <select name="headDropdown">
                     {head}
@@ -14,9 +14,7 @@
                     {/head}
                     </select>
                 </div>
-            </form>
             <h4>Torso</h4>
-            <form name="torsoForm" class="form-group">
                 <div align="center">
                     <select name="torsoDropdown">
                     {torso}
@@ -24,9 +22,7 @@
                     {/torso}
                     </select>
                 </div>
-            </form>
             <h4>Legs</h4>
-            <form name="legsForm" class="form-group">
                 <div align="center">
                     <select name="legsDropdown">
                     {legs}
@@ -34,6 +30,7 @@
                     {/legs}
                     </select>
                 </div>
+            <input type = "submit" value = "Submit">
             </form>
         </ul>
     </nav>
