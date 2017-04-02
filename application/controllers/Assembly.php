@@ -27,6 +27,7 @@ class Assembly extends Application
 
     public function index()
     {
+        error_reporting(E_ALL ^ E_WARNING);
         if($this->session->userdata('userrole') != ROLE_SUPERVISOR)
         {
             redirect($_SERVER['HTTP_REFERER']);
