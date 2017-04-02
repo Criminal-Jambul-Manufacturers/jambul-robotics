@@ -20,7 +20,8 @@ class PandaAPI {
     // Returns an array of "part" objects, or null on failure
     public function buyPartBox() {
         $response = file_get_contents('https://umbrella.jlparry.com/work/buybox?key=' . $this->getKey());
-        if ($response == false || $response == "Oops: you can't afford that!") {
+        $wordlist = explode(" ", $response);
+        if ($response == false || $wordlist[0] == "Oops:") {
             return null;
         }
         return json_decode($response);
@@ -29,7 +30,8 @@ class PandaAPI {
     // Returns an array of "part" objects
     public function getBuiltParts() {
         $response = file_get_contents('https://umbrella.jlparry.com/work/mybuilds?key=' . $this->getKey());
-        if ($response == false) {
+        $wordlist = explode(" ", $response);
+        if ($response == false || $wordlist[0] == "Oops:") {
             return null;
         }
         return json_decode($response);
@@ -63,19 +65,66 @@ class PandaAPI {
         return $response == "Ok";
     }
     // Checks who the user is
-    // Returns the name of the plant
+    // Returns the name of the plant, null on failure
     public function whoAmI() {
-        return "not done yet";
+        $response = file_get_contents('https://umbrella.jlparry.com/info/whoami?key=' . $this->getKey());
+        $wordlist = explode(" ", $response);
+        if ($response == false || $wordlist[0] == "Oops:") {
+            return null;
+        }
+        return $response;
     }
     // Gets part info based on the passed in certificate
     // Returns null on failure
     public function getPartInfo($cert) {
-        return null;
+        $response = file_get_contents('https://umbrella.jlparry.com/info/verify/' . $cert);
+        $wordlist = explode(" ", $response);
+        if ($response == false || $wordlist[0] == "Oops:") {
+            return null;
+        }
+        return json_decode($response);
     }
     // Recycles the passed in array of parts objects
-    // Returns true on success, false otherwise
-    public function recycle($parts) {
-        return false;
+    // Returns the money made on success, 0 on failure
+    public function recycle(&$parts) {
+        $partBuf = array();
+        $sales = 0;
+        foreach($parts as &$part) {
+            $partBuf[] = $part;
+            if (count($partBuf) >= 3) {
+                $sales += $this->recycleOnce($partBuf[0], $partBuf[1], $partBuf[2]);
+                $partBuf = array();
+            }
+        }
+        if (count($partBuf) == 2) {
+            $sales += $this->recycleOnce($partBuf[0], $partBuf[1]);
+        }
+        else if (count($partBuf) == 1) {
+            $sales += $this->recycleOnce($partBuf[0]);
+        }
+        
+        return $sales;
+    }
+    private function recycleOnce(&$part1, &$part2 = null, &$part3 = null) {
+        $recStr = $part1->id;
+        $part1->used = true;
+        if (!is_null($part2)) {
+            $recStr .= '/' . $part2->id;
+            $part2->used = true;
+        }
+        if (!is_null($part3)) {
+            $recStr .= '/' . $part3->id;
+            $part3->used = true;
+        }
+        $response = file_get_contents('https://umbrella.jlparry.com/work/recycle/' . $recStr . '?key=' . $this->getKey());
+        if ($response == false) {
+            return 0;
+        }
+        $wordlist = explode(" ", $response);
+        if ($wordlist[0] != "Ok") {
+            return 0;
+        }
+        return $wordlist[1];
     }
     // Invalidates the API key
     public function endSession() {
@@ -86,13 +135,15 @@ class PandaAPI {
     // Returns null on failure
     public function getBalance($team) {
         $response = file_get_contents('https://umbrella.jlparry.com/info/balance/' . $team);
-        return $response != "Oops: invalid team name given." && $response != false ? $response : null;
+        $wordlist = explode(" ", $response);
+        return $wordlist[0] != "Oops:" && $response != false ? $response : null;
     }
     // Gets the scoop on a team (in an object)
     // Returns null on failure, an object on success
     public function getScoop($team) {
         $response = file_get_contents('https://umbrella.jlparry.com/info/scoop/' . $team);
-        if ($response == false || $response == "Oops: invalid team name given.") {
+        $wordlist = explode(" ", $response);
+        if ($response == false || $wordlist[0] == "Oops:") {
             return null;
         }
         return json_decode($response);
@@ -101,7 +152,8 @@ class PandaAPI {
     // Returns null on failure, array of strings on success
     public function whoMakes($part) {
         $response = file_get_contents('https://umbrella.jlparry.com/info/whomakes/' . $part);
-        if ($response == false || $response == "Oops: no factory is making the specified part.") {
+        $wordlist = explode(" ", $response);
+        if ($response == false || $wordlist[0] == "Oops:") {
             return null;
         }
         $response = preg_replace("/[\"\\[\\]]/", "", $response);
@@ -111,13 +163,15 @@ class PandaAPI {
     // Returns null on failure, string on success
     public function getJob($team) {
         $response = file_get_contents('https://umbrella.jlparry.com/info/job/' . $team);
-        return $response != "Oops: invalid team name given." && $response != false ? $response : null;
+        $wordlist = explode(" ", $response);
+        return $wordlist[0] != "Oops:" && $response != false ? $response : null;
     }
     // Get all of the teams participating
     // Returns an array of team names on success, null on failure
     public function getTeams() {
         $response = file_get_contents('https://umbrella.jlparry.com/info/teams');
-        if ($response == false) {
+        $wordlist = explode(" ", $response);
+        if ($response == false || $wordlist[0] == "Oops:") {
             return null;
         }
         $response = preg_replace("/[\"\\[\\]]/", "", $response);
