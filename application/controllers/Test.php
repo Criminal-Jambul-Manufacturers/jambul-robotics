@@ -14,8 +14,12 @@ class Test extends Application
     
     public function index()
     {
+        $testbot = new stdClass();
+        $testbot->head = "283fa7";
+        $testbot->torso = "3fe906";
+        $testbot->bottom = "410d7e";
         $this->data['pagebody'] = 'test';
-        $this->data['testmsg'] = $this->pandaapi->getBuiltParts()[0]->id;
+        $this->data['testmsg'] = $this->pandaapi->sellBot($testbot);
         $this->render(); 
     }
 }

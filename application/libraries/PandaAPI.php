@@ -36,9 +36,25 @@ class PandaAPI {
     }
     // Sell a bot
     // Pass in the robot object
-    // Returns true if the bot is successfully sold, false if it wasn't
-    public function sellBot() {
-        return true;
+    // Returns the money received if the bot is successfully sold, 0 if it wasn't
+    public function sellBot(&$bot) {
+        $head = $bot->head;
+        $torso = $bot->torso;
+        $bottom = $bot->bottom;
+        $response = file_get_contents('https://umbrella.jlparry.com/work/buymybot/'
+                . $head . '/'
+                . $torso . '/'
+                . $bottom . '?key=' . $this->getKey());
+        if ($response == false) {
+            return 0;
+        }
+        $bot->sold = true;
+        $wordlist = explode(" ", $response);
+        if ($wordlist[0] != "Ok") {
+            return 0;
+        }
+        
+        return $wordlist[1];
     }
     // Reboots the plant
     // Returns true on success, false on failure
