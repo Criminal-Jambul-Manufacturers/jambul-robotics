@@ -28,7 +28,11 @@ class PandaAPI {
     // Get any built parts
     // Returns an array of "part" objects
     public function getBuiltParts() {
-        return array();
+        $response = file_get_contents('https://umbrella.jlparry.com/work/mybuilds?key=' . $this->getKey());
+        if ($response == false) {
+            return null;
+        }
+        return json_decode($response);
     }
     // Sell a bot
     // Pass in the robot object
