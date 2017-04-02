@@ -49,7 +49,7 @@ class Transaction extends MY_Model{
         $revenue = 0.0;
         
         $shipments = $this->some('transactionType', 'Shipment');
-        $returns = $this->some('transactionType', 'return');
+        $returns = $this->some('transactionType', 'Return');
         
         foreach ($shipments as $record) {
             $revenue += $record->cost;

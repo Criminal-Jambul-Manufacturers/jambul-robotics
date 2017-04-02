@@ -1,6 +1,6 @@
 <?php
 
-class Config extends MY_Model{
+class Control extends MY_Model{
     
     /*
      * Constructor for a Config, calls the parent constructor.
