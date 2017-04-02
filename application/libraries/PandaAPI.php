@@ -9,14 +9,21 @@ class PandaAPI {
     private function getKey() {
         if (is_null($this->apikey)) {
             // Todo: Get the API key from the server
-            $this->apikey = "";
+            $this->apikey = $this->genNewKey();
         }
         return $this->apikey;
+    }
+    private function genNewKey() {
+        return "";
     }
     // Purchase a box
     // Returns an array of "part" objects, or null on failure
     public function buyPartBox() {
-        return null;
+        $response = file_get_contents('https://umbrella.jlparry.com/work/buybox?key=' . $this->getKey());
+        if ($response == false || $response == "Oops: you can't afford that!") {
+            return null;
+        }
+        return json_decode($response);
     }
     // Get any built parts
     // Returns an array of "part" objects
