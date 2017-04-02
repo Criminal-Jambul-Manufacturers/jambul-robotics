@@ -57,7 +57,7 @@
                         <img src="/assets/img/parts/{IMG_BOTTOM}" width="50%" height="50%"/></br>
                     </td>
                     <td>
-                        <button class='btn btn-sm' onclick='sellRobot("{BOT_ID}")'>Sell Me!</button>
+                        <button class='btn btn-sm' onclick='sellRobot("{BOT_OBJECT}")'>Sell Me!</button>
                     </td>
                 </tr>
                 {/robot}
