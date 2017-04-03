@@ -2,4 +2,4 @@
 <img src="/assets/img/parts/{partImg}" /><br/>
 Model: {id}<br/>
 Origin: {plant}<br/>
-Build Time: {date} {time}<br/>
+Build Time: {time}<br/>
