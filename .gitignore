@@ -5,3 +5,5 @@
 !*/cache/index.html
 !*/cache/.htaccess
 /nbproject/private/
+/application/data/dummy.php
+/application/data/tmp/*

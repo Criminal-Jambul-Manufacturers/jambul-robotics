@@ -1,12 +1,12 @@
 <div>
-    <h1>Assembly</h1>
-    <br/><br/><br/>
+    <h2>Assembly</h2>
+    <br/>
 </div>
 <div class="form-group">
     <nav class="form-group">
         <ul class="form-group">
-        <h3>Head</h3>
-            <form name="headForm" class="form-group">
+            <form name="robotForm" class="form-group" method="post" action="/assembly/assemble">
+                <h4>Head</h4>
                 <div align="center">
                     <select name="headDropdown">
                     {head}
@@ -14,9 +14,7 @@
                     {/head}
                     </select>
                 </div>
-            </form>
-            <h3>Torso</h3>
-            <form name="torsoForm" class="form-group">
+                <h4>Torso</h4>
                 <div align="center">
                     <select name="torsoDropdown">
                     {torso}
@@ -24,39 +22,38 @@
                     {/torso}
                     </select>
                 </div>
-            </form>
-            <h3>Legs</h3>
-            <form name="legsForm" class="form-group">
+                <h4>Bottom</h4>
                 <div align="center">
-                    <select name="legsDropdown">
-                    {legs}
+                    <select name="bottomDropdown">
+                    {bottom}
                          <option value="{partID}">ID: {partID}  Code: {partCode}</option>
-                    {/legs}
+                    {/bottom}
                     </select>
                 </div>
+            <input type="submit" value="Assemble It!">
             </form>
         </ul>
     </nav>
-    <br/> <br/>
+    <br/>
 </div>
-<h2>Robots</h2>
+<h3>Robots</h3>
 <div class="row">
 {robots}
-    <h3>Robot {robotID}</h3>
-    <div class="col-xs-4">
+    <h4>Robot {robotID}</h4>
+    <div class="col-xs-4 robot-part">
             <a href="/parts/onePart/{headID}">
-            <img src="assets/img/parts/{head}.jpeg" width="50%" height="50%"/></br>
-        {head}</a>
+            <img src="/assets/img/parts/{headImg}" width="50%" height="50%"/></br>
+        {head} ({headID})</a>
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-4 robot-part">
             <a href="/parts/onePart/{torsoID}">
-            <img src="assets/img/parts/{torso}.jpeg" width="50%" height="50%"/></br>
-        {torso}</a>
+            <img src="/assets/img/parts/{torsoImg}" width="50%" height="50%"/></br>
+        {torso} ({torsoID})</a>
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-4 robot-part">
             <a href="/parts/onePart/{bottomID}">
-            <img src="assets/img/parts/{bottom}.jpeg" width="50%" height="50%"/></br>
-        {bottom}</a>
+            <img src="/assets/img/parts/{bottomImg}" width="50%" height="50%"/></br>
+        {bottom} ({torsoID})</a>
     </div>
 {/robots}
 </div>

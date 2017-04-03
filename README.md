@@ -179,3 +179,6 @@ Cautions
 Don't get carried away, spending days coming up with “perfect” design or content, etc.
 
 This is a course assignment, not a job, and not an industry-sponsored project. It is a vehicle to learn how to use CodeIgniter to build a simple webapp, incorporating good practices.
+
+
+Testing the deployment server

@@ -9,6 +9,10 @@ body {
 	color: #431363;
 }
 
+.robot-part {
+    text-align: center;
+}
+
 a {
 	color: #003399;
 	background-color: transparent;
@@ -124,6 +128,25 @@ p.footer {
 	margin: 20px 0 0 0;
 }
 
+
 #container {
 	border: 1px solid #431363; 
+}
+
+
+
+.buttonContainer {
+    text-align: right;
+    margin-left: 200px;
+}
+
+#rebootButton {
+     text-align: right;
+     margin-left: 200px;
+}
+
+
+.manageTableCells {
+    margin-left: 80px;
+
 }

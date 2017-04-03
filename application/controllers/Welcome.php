@@ -13,9 +13,10 @@ class Welcome extends Application
     
     public function index()
     {
+        error_reporting(E_ALL ^ E_WARNING);
         $this->data['pagebody'] = 'welcome_message';
-        $this->data['numparts'] = $this->part->numParts();
-        $this->data['numrobots'] = $this->robot->numRobots();
+        $this->data['numparts'] = $this->part->size();
+        $this->data['numrobots'] = $this->robot->size();
         $this->data['moneyspent'] = $this->transaction->moneySpent();
         $this->data['revenue'] = $this->transaction->revenue();
         $this->render(); 
