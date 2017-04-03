@@ -53,7 +53,9 @@ class Parts extends Application
      */
     public function buildParts()
     {
-        $secretPass = $this->control->just1('superSecretPass')->configValue;
+        error_reporting(E_ALL ^ E_WARNING);
+        $this->data['pagebody'] = 'part';
+        $secretPass = $this->control->get('superSecretPass')->configValue;
         $this->pandaapi->updateKey('jambul', $secretPass);
         
         $builtParts = $this->pandaapi->getBuiltParts();
@@ -64,6 +66,7 @@ class Parts extends Application
         }
         
         $transaction = array(
+            'transactionID' => NULL,
             'description' => 'Got the built parts',
             'cost' => 0,
             'time' => time(),
@@ -72,6 +75,8 @@ class Parts extends Application
         );
         
         $this->transaction->add($transaction);
+        
+        $this->index();
     }
     
     /*
@@ -82,24 +87,36 @@ class Parts extends Application
      */
     public function buyParts()
     {
-        $secretPass = $this->control->just1('superSecretPass')->configValue;
+        error_reporting(E_ALL ^ E_WARNING);
+        $secretPass = $this->control->get('superSecretPass')->configValue;
         $this->pandaapi->updateKey('jambul', $secretPass);
         
         $boughtParts = $this->pandaapi->buyPartBox();
         
-        foreach($boughtParts as $myPart)
+        foreach($boughtParts as $jlpPart)
         {
+            $myPart = array(
+                'partID' => NULL,
+                'model' => $jlpPart->model,
+                'piece' => $jlpPart->piece,
+                'stamp' => $jlpPart->stamp,
+                'id' => $jlpPart->id,
+                'plant' => $jlpPart->plant
+            );
             $this->part->add($myPart);
         }
         
         $transaction = array(
+            'transactionID' => NULL,
             'description' => 'Got a box parts',
             'cost' => 100,
-            'time' => time(),
+            'time' => NULL,
             'transactionType' => 'Purchase',
             'robot' => NULL
         );
         
         $this->transaction->add($transaction);
+        
+        $this->index();
     }
 }
