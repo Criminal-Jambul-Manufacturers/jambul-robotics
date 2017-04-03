@@ -5,8 +5,8 @@
 <div class="form-group">
     <nav class="form-group">
         <ul class="form-group">
-        <h4>Head</h4>
             <form name="robotForm" class="form-group" method="post" action="/assembly/assemble">
+                <h4>Head</h4>
                 <div align="center">
                     <select name="headDropdown">
                     {head}
@@ -14,7 +14,7 @@
                     {/head}
                     </select>
                 </div>
-            <h4>Torso</h4>
+                <h4>Torso</h4>
                 <div align="center">
                     <select name="torsoDropdown">
                     {torso}
@@ -22,15 +22,15 @@
                     {/torso}
                     </select>
                 </div>
-            <h4>Legs</h4>
+                <h4>Bottom</h4>
                 <div align="center">
-                    <select name="legsDropdown">
-                    {legs}
+                    <select name="bottomDropdown">
+                    {bottom}
                          <option value="{partID}">ID: {partID}  Code: {partCode}</option>
-                    {/legs}
+                    {/bottom}
                     </select>
                 </div>
-            <input type = "submit" value = "Submit">
+            <input type="submit" value="Assemble It!">
             </form>
         </ul>
     </nav>

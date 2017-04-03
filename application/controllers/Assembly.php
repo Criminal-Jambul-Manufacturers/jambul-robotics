@@ -39,7 +39,7 @@ class Assembly extends Application
             $this->data['assembly'] = $this->robot->all();
             $this->data['head'] = $this->part->allOfType(1);
             $this->data['torso'] = $this->part->allOfType(2);
-            $this->data['legs'] = $this->part->allOfType(3);
+            $this->data['bottom'] = $this->part->allOfType(3);
 
             $robots = $this->robot->all();
             foreach($robots as &$robot) {
@@ -56,9 +56,24 @@ class Assembly extends Application
         }
     }
 
+    /*
+     * Validate the selected parts, to make sure there
+     * is one of each needed for a complete bot
+     * Adds a record to your "robots" table, with the chosen parts
+     * Removes the parts from the "parts" table
+     * Updates the history table
+     */
     public function assemble()
     {
-        $this->render(); 
+        
+        $robot = array(
+            'headID' => $this->input->post("headDropdown"),
+            'torsoID' => $this->input->post("torsoDropdown"),
+            'bottomID' => $this->input->post("bottomDropdown"),
+            'model' => $botModel,
+            'sold' => 0
+        );
+        
+        $this->render();
     }
-    
 }
