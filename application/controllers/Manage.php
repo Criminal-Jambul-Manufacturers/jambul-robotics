@@ -19,7 +19,6 @@ class Manage extends Application
         error_reporting(E_ALL ^ E_WARNING);
         $secretPass = $this->control->just1('superSecretPass');
         $this->pandaapi->updateKey('jambul', $secretPass->configValue);
-
         $role = $this->session->userdata('userrole');
         if ($role != ROLE_BOSS)
         {
