@@ -24,8 +24,21 @@ class Parts extends Application
             }
             else
             {
-                $this->data['pagebody'] = 'partpage';
-                $this->data['part'] = $this->part->all();
+                $this->data['pagebody'] = 'part';
+                
+                $parts = $this->part->all();
+                $formattedParts = array();
+                
+                foreach($parts as $part) {
+                    $formattedParts[] = array(
+                        'partID' => $part->partID,
+                        'partImg' => $part->model . $part->piece . '.jpeg',
+                        'partCode' => $part->model . $part->piece,
+                        'certID' => $part->id
+                    );
+                }
+                
+                $this->data['part'] = $formattedParts;
                 $this->render();
             }
 	}
@@ -35,14 +48,12 @@ class Parts extends Application
     public function onePart($partID)
     {
         $this->data['pagebody'] = 'getPartInfo';
-        $source = $this->part->just1($partID);
-        $this->data['partModel'] = $source['model'];
-        $this->data['partPiece'] = $source['piece'];
-        $this->data['img'] = $source['partImg'];
-        $this->data['certID'] = $source['certID'];
-        $this->data['plant'] = $source['originPlant'];
-        $this->data['date'] = $source['dateBuilt'];
-        $this->data['time'] = $source['timeBuilt'];
+        $part = $this->part->get($partID);
+        $this->data['id'] = $part->model . $part->piece;
+        $this->data['partImg'] = $part->model . $part->piece . '.jpeg';
+        $this->data['certID'] = $part->id;
+        $this->data['plant'] = $part->plant;
+        $this->data['time'] = $part->stamp;
 
         $this->render();
     }
