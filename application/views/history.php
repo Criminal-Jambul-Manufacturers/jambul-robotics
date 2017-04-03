@@ -5,8 +5,7 @@
         <th>Type</th>
         <th>Description</th>
         <th>Cost</th>
-        <th>Date</th>
-        <th>Time</th>
+        <th>Date and Time</th>
     </tr>
         {display_transactions}    
 </table>
