@@ -1,3 +1,4 @@
+{pagination}
 <table class="table">
     <tr>
         <th>Id</th>
@@ -7,14 +8,5 @@
         <th>Date</th>
         <th>Time</th>
     </tr>
-    {history}
-    <tr>
-        <td>{transactionID}</td>
-        <td>{transactionType}</td>
-        <td>{description}</td>
-        <td>{cost}</td>
-        <td>{date}</td>
-        <td>{time}</td>
-    </tr>
-    {/history}    
+        {display_transactions}    
 </table>
