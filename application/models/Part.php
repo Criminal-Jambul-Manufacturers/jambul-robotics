@@ -28,7 +28,7 @@ class Part extends MY_Model{
         $partsOfType = array();
         
         foreach($parts as $part) {
-            if($part->partCode[1] == $type) {
+            if($part->piece == $type) {
                 $partsOfType = $part;
             }
         }

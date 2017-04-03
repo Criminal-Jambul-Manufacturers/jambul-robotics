@@ -7,5 +7,5 @@
         <th>Cost</th>
         <th>Date and Time</th>
     </tr>
-        {display_transactions}    
+        {display_transactions}
 </table>

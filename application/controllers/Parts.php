@@ -81,7 +81,7 @@ class Parts extends Application
             'transactionID' => NULL,
             'description' => 'Got the built parts',
             'cost' => 0,
-            'time' => time(),
+            'time' => mktime(year,month,day,hour,minute,second),
             'transactionType' => 'Build',
             'robot' => NULL
         );
