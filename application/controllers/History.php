@@ -15,13 +15,7 @@ class History extends Application
     public function index()
     {
             error_reporting(E_ALL ^ E_WARNING);
-           // $transactions = $this->transaction->all(); // get all the transactions
-            //$this->show_page($transactions);
             $this->page(1);
-            //$this->data['pagebody'] = 'history';
-            //$this->data['history'] = $this->transaction->all();
-
-            $this->render(); 
     }
 
 
@@ -62,7 +56,6 @@ class History extends Application
         $this->data['pagination'] = $this->pagenav($num);
         $this->show_page($transactions);
     }
-
 
 
 
