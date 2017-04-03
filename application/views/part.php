@@ -1,7 +1,7 @@
 <h2>Parts</h2>
 <div class="row">
-    <a href="/part/buildParts"><button type="button">Build Parts</button></a>
-    <a href="/part/buyParts"><button type="button">Buy Parts</button></a>
+    <a href="/parts/buildParts"><button type="button">Build Parts</button></a>
+    <a href="/parts/buyParts"><button type="button">Buy Parts</button></a>
 </div>
 <div class="row">
     {part}
