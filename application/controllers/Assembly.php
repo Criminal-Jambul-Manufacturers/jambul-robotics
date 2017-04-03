@@ -65,15 +65,65 @@ class Assembly extends Application
      */
     public function assemble()
     {
+        $headID = $this->input->post("headDropdown");
+        $torsoID = $this->input->post("torsoDropdown");
+        $bottomID = $this->input->post("bottomDropdown");
         
-        $robot = array(
-            'headID' => $this->input->post("headDropdown"),
-            'torsoID' => $this->input->post("torsoDropdown"),
-            'bottomID' => $this->input->post("bottomDropdown"),
-            'model' => $botModel,
-            'sold' => 0
-        );
+        if($this->part->exists($headPart) && $this->part->exists($torsoPart)
+                && $this->part->exists($bottomPart))
+        {
+            $headPart = $this->part->get($headID);
+            $torsoPart = $this->part->get($torsoID);
+            $bottomPart = $this->part->get($bottomID);
+            
+            if($headPart->model == $torsoPart->model
+                    && $headPart->model == $bottomPart->model)
+            {
+                if($headPart->model <= 'l')
+                {
+                    $botModel = "household";
+                }
+                else if($headPart->model >= 'w')
+                {
+                    $botModel = "companion";
+                }
+                else
+                {
+                    $botModel = "butler";
+                }
+            }
+            else
+            {
+                $botModel = "motley";
+            }
+            
+            $myRobot = array(
+                'robotID' => NULL,
+                'headID' => $headID,
+                'torsoID' => $torsoID,
+                'bottomID' => $bottomID,
+                'model' => $botModel,
+                'sold' => 0
+            );
+
+            $this->robot->add($myRobot);
+            
+            $this->part->delete($headID);
+            $this->part->delete($torsoID);
+            $this->part->delete($bottomID);
+            
+            $transaction = array(
+                'transactionID' => NULL,
+                'description' => 'Built a new robot',
+                'cost' => 0,
+                'time' => mktime(year,month,day,hour,minute,second),
+                'transactionType' => 'Build',
+                'robot' => NULL
+            );
+
+            $this->transaction->add($transaction);
+        }
         
-        $this->render();
+        $this->index();
     }
 }

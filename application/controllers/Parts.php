@@ -24,7 +24,7 @@ class Parts extends Application
             }
             else
             {
-                $this->data['pagebody'] = 'part';
+                $this->data['pagebody'] = 'partpage';
                 $this->data['part'] = $this->part->all();
                 $this->render();
             }
@@ -36,7 +36,8 @@ class Parts extends Application
     {
         $this->data['pagebody'] = 'getPartInfo';
         $source = $this->part->just1($partID);
-        $this->data['id'] = $source['partCode'];
+        $this->data['partModel'] = $source['model'];
+        $this->data['partPiece'] = $source['piece'];
         $this->data['img'] = $source['partImg'];
         $this->data['certID'] = $source['certID'];
         $this->data['plant'] = $source['originPlant'];
@@ -69,7 +70,7 @@ class Parts extends Application
             'transactionID' => NULL,
             'description' => 'Got the built parts',
             'cost' => 0,
-            'time' => time(),
+            'time' => mktime(year,month,day,hour,minute,second),
             'transactionType' => 'Build',
             'robot' => NULL
         );
