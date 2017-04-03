@@ -25,7 +25,7 @@ class History extends Application
         $this->data['pagetitle'] = 'Jambul History';
         // build the transaction presentation output
         $result = ''; // start with an empty array      
-        foreach ($transaction as $trans) {
+        foreach ($transactions as $trans) {
                 $result .= $this->parser->parse('oneTransaction', (array) $trans, true);
         }
         $this->data['display_transactions'] = $result;
